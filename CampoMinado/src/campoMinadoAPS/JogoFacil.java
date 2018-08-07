@@ -124,7 +124,7 @@ public class JogoFacil {
 	public void insereMinas() {
 		boolean sorteado;
 		int linha, coluna;
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 8; i++) {
 
 			do {
 				linha = random.nextInt(5) + 1;

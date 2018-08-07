@@ -36,7 +36,7 @@ public class CodJogoPrincipal {
 			System.out.println("BUUUM! Você perdeu!");
 			jogo.exibeMinas();
 		} else {
-			System.out.println("Parabéns, você deixou os 8 campos de minas livres em " + rodada + " rodadas");
+			System.out.println("Parabéns, você deixou os 20 campos de minas livres em " + rodada + " rodadas");
 
 			jogo.exibeMinas();
 		}

@@ -110,8 +110,8 @@ public class JogoDificil {
 	}
 
 	public void startBoard() {
-		for (int i = 1; i < minas.length; i++)
-			for (int j = 1; j < minas.length; j++)
+		for (int i = 1; i < tabuleiro.length; i++)
+			for (int j = 1; j < tabuleiro.length; j++)
 				tabuleiro[i][j] = '~';
 	}
 
@@ -124,7 +124,7 @@ public class JogoDificil {
 	public void insereMinas() {
 		boolean sorteado;
 		int linha, coluna;
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 20; i++) {
 
 			do {
 				linha = random.nextInt(8) + 1;
