@@ -10,15 +10,15 @@ public class JogoDificil {
 	Random random = new Random();
 	Scanner in = new Scanner(System.in);
 
-	public JogoDificil(){
-	        minas = new int[12][12];
-	        tabuleiro = new char[12][12];
-	        minas();
-	        insereMinas(); 
-	        preencheDicas();
-	        startBoard();
-	        
-	    }
+	public JogoDificil() {
+		minas = new int[12][12];
+		tabuleiro = new char[12][12];
+		minas();
+		insereMinas();
+		preencheDicas();
+		startBoard();
+
+	}
 
 	public boolean ganhou() {
 		int count = 0;
@@ -35,7 +35,8 @@ public class JogoDificil {
 	public void abrirProximas() {
 		for (int i = -1; i < 2; i++)
 			for (int j = -1; j < 2; j++)
-				if ((minas[linha + i][coluna + j] != -1) && (linha != 0 && linha != 11 && coluna != 0 && coluna != 11)) {
+				if ((minas[linha + i][coluna + j] != -1)
+						&& (linha != 0 && linha != 11 && coluna != 0 && coluna != 11)) {
 					tabuleiro[linha + i][coluna + j] = Character.forDigit(minas[linha + i][coluna + j], 12);
 				}
 	}
@@ -52,12 +53,17 @@ public class JogoDificil {
 			System.out.print("Coluna: ");
 			coluna = in.nextInt();
 
-			if ((tabuleiro[linha][coluna] != '~') && ((linha < 11 && linha > 0) && (coluna < 11 && coluna > 0))) {
-				System.out.println("Esse campo já está sendo exibido!");
+			if ((linha < 11 && linha > 0) && (coluna < 11 && coluna > 0)) {
+				if (tabuleiro[linha][coluna] != '~') {
+					System.out.println("Esse campo já está sendo exibido!");
+				}
 			}
-
 			if (linha < 1 || linha > 10 || coluna < 1 || coluna > 10) {
-				System.out.println("Escolha números de 1 até 10");
+				System.out.println("\n\nEscolha números de 1 até 10");
+				linha = 11;
+				coluna = 11;
+				tabuleiro[linha][coluna] = 50;
+				exibe();
 			}
 
 		} while ((tabuleiro[linha][coluna] != '~'));
@@ -73,7 +79,7 @@ public class JogoDificil {
 		System.out.println("\n     Linhas");
 		for (int linha = 10; linha > 0; linha--) {
 			if (linha != 10) {
-			System.out.print("        " + linha + " ");
+				System.out.print("        " + linha + " ");
 			} else {
 				System.out.print("       " + linha + " ");
 			}

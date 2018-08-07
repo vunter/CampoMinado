@@ -3,22 +3,22 @@ package campoMinadoAPS;
 import java.util.*;
 
 public class JogoMedio {
-	
+
 	private int[][] minas;
 	private char[][] tabuleiro;
 	private int linha, coluna;
 	Random random = new Random();
 	Scanner in = new Scanner(System.in);
 
-	public JogoMedio(){
-	        minas = new int[10][10];
-	        tabuleiro = new char[10][10];
-	        minas();
-	        insereMinas(); 
-	        preencheDicas();
-	        startBoard();
-	        
-	    }
+	public JogoMedio() {
+		minas = new int[10][10];
+		tabuleiro = new char[10][10];
+		minas();
+		insereMinas();
+		preencheDicas();
+		startBoard();
+
+	}
 
 	public boolean ganhou() {
 		int count = 0;
@@ -52,12 +52,18 @@ public class JogoMedio {
 			System.out.print("Coluna: ");
 			coluna = in.nextInt();
 
-			if ((tabuleiro[linha][coluna] != '~') && ((linha < 9 && linha > 0) && (coluna < 9 && coluna > 0))) {
-				System.out.println("Esse campo já está sendo exibido!");
+			if ((linha < 9 && linha > 0) && (coluna < 9 && coluna > 0)) {
+				if (tabuleiro[linha][coluna] != '~') {
+					System.out.println("Esse campo já está sendo exibido!");
+				}
 			}
 
 			if (linha < 1 || linha > 8 || coluna < 1 || coluna > 8) {
 				System.out.println("Escolha números de 1 até 8");
+				linha = 9;
+				coluna = 9;
+				tabuleiro[linha][coluna] = 50;
+				exibe();
 			}
 
 		} while ((tabuleiro[linha][coluna] != '~'));
@@ -140,4 +146,3 @@ public class JogoMedio {
 		}
 	}
 }
-
