@@ -10,15 +10,15 @@ public class JogoFacil {
 	Random random = new Random();
 	Scanner in = new Scanner(System.in);
 
-	public JogoFacil(){
-	        minas = new int[8][8];
-	        tabuleiro = new char[8][8];
-	        minas();
-	        insereMinas(); 
-	        preencheDicas();
-	        startBoard();
-	        
-	    }
+	public JogoFacil() {
+		minas = new int[8][8];
+		tabuleiro = new char[8][8];
+		minas();
+		insereMinas();
+		preencheDicas();
+		startBoard();
+
+	}
 
 	public boolean ganhou() {
 		int count = 0;
@@ -52,12 +52,18 @@ public class JogoFacil {
 			System.out.print("Coluna: ");
 			coluna = in.nextInt();
 
-			if ((tabuleiro[linha][coluna] != '~')) {
-				System.out.println("Esse campo já está sendo exibido!");
+			if ((linha < 7 && linha > 0) && (coluna < 7 && coluna > 0)) {
+				if ((tabuleiro[linha][coluna] != '~')) {
+					System.out.println("Esse campo já está sendo exibido!");
+				}
 			}
 
 			if (linha < 1 || linha > 6 || coluna < 1 || coluna > 6) {
 				System.out.println("Escolha números de 1 até 6");
+				linha = 7;
+				coluna = 7;
+				tabuleiro[linha][coluna] = 50;
+				exibe();
 			}
 
 		} while ((tabuleiro[linha][coluna] != '~'));
